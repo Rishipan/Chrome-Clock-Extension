@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RP DEV | Clock</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+  <main class="stopwatch">
+    <header class="header">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">RP</span>
+        <span>RP DEV</span>
+      </div>
+      <span id="status" class="status">READY</span>
+    </header>
+
+    <div class="mode-control">
+      <label for="modeSelector">MODE</label>
+      <select id="modeSelector" class="mode-selector">
+        <option value="stopwatch">Stopwatch</option>
+        <option value="alarm">Alarm</option>
+        <option value="clock">Clock</option>
+      </select>
+    </div>
+
+    <section class="timer-panel" aria-label="Stopwatch timer">
+      <div id="display" class="display" role="timer" aria-live="off">00:00.00</div>
+      <div id="timerCaption" class="timer-caption">MINUTES <span></span> SECONDS <span></span> HUNDREDTHS</div>
+    </section>
+
+    <section id="alarmPanel" class="alarm-panel" aria-label="Alarm" hidden>
+      <div class="alarm-heading">
+        <span class="alarm-title">Set an alarm</span>
+        <span id="alarmStatus" class="alarm-status">OFF</span>
+      </div>
+      <div class="alarm-info">
+        <label class="alarm-time-label" for="alarmTime">ALARM TIME</label>
+        <input id="alarmTime" class="alarm-time" type="time" aria-label="Alarm time">
+      </div>
+      <div class="alarm-toggle-row">
+        <span class="alarm-toggle-label">Enable alarm</span>
+        <label class="switch" aria-label="Enable alarm">
+          <input id="alarmToggle" type="checkbox">
+          <span class="switch-track"></span>
+        </label>
+      </div>
+      <p id="alarmMessage" class="alarm-message" aria-live="polite"></p>
+    </section>
+
+    <div id="stopwatchControls" class="controls">
+      <button id="startPause" class="button button-primary" type="button">Start</button>
+      <button id="lap" class="button button-secondary" type="button" disabled>Lap</button>
+      <button id="reset" class="button button-quiet" type="button">Reset</button>
+    </div>
+
+    <section id="lapsSection" class="laps-section" aria-labelledby="lapsHeading">
+      <div class="laps-heading">
+        <h1 id="lapsHeading">Lap times</h1>
+        <span id="lapCount" class="lap-count">0 LAPS</span>
+      </div>
+      <ol id="laps" class="laps"></ol>
+      <p id="emptyState" class="empty-state">Your lap times will appear here.</p>
+    </section>
+    <footer>A TOOL BY RP DEV</footer>
+  </main>
+  <script src="popup.js"></script>
+</body>
+
+</html>
